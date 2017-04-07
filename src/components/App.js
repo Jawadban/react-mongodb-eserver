@@ -15,7 +15,7 @@ export default class App extends React.Component {
 		.then( res => {
 			console.log('RES', res)
 			this.setState ({
-				dataToRender: res.data.contests
+				dataToRender: res.data
 			})
 		})
 		.catch(error => console.log(error))
@@ -30,15 +30,16 @@ export default class App extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.dataToRender)
+		console.log('STATE', this.state.dataToRender.data)
 		return (
+			this.state.dataToRender.data? 
 			<div>
 				{ 
-					this.state.dataToRender.map(
+					this.state.dataToRender.data.map(
 						(nam, index) => <Entery name={nam} key={index}/>
 					)
 				}
-			</div>
+			</div> : false
 		)
 	}
 }

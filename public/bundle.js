@@ -10407,7 +10407,7 @@ var App = function (_React$Component) {
 			_axios2.default.get('/api/').then(function (res) {
 				console.log('RES', res);
 				_this2.setState({
-					dataToRender: res.data.contests
+					dataToRender: res.data
 				});
 			}).catch(function (error) {
 				return console.log(error);
@@ -10423,15 +10423,14 @@ var App = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var array = [1, 2, 3, 4, 5];
-			console.log(this.state.dataToRender);
-			return _react2.default.createElement(
+			console.log('STATE', this.state.dataToRender.data);
+			return this.state.dataToRender.data ? _react2.default.createElement(
 				'div',
 				null,
-				this.state.dataToRender.map(function (nam, index) {
+				this.state.dataToRender.data.map(function (nam, index) {
 					return _react2.default.createElement(_Entery2.default, { name: nam, key: index });
 				})
-			);
+			) : false;
 		}
 	}]);
 
