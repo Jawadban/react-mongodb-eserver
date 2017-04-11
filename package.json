@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node server.js --ignore public/",
-    "dev": "webpack -wd"
+    "dev": "webpack -d --watch",
+    "build" : "webpack -p"
   },
   "description": "this is a project based on Recact Node Server and Mongodb",
   "repository": {
